@@ -40,7 +40,7 @@ public class CountryController {
                         .map(old -> {
                             old.setCode(country.getCode());
                             old.setName(country.getName());
-                            old.setShortcut(country.getShortcut());
+                            old.setCapital(country.getCapital());
                             return Optional.of(countryRepository.save(old));
                         }).orElse(Optional.empty())
         );
