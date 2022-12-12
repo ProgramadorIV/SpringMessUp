@@ -24,6 +24,7 @@ public class Categoria {
     private String nombre;
 
     @ManyToOne
+    @JoinColumn(name = "categoria_padre", foreignKey = @ForeignKey(name ="FK_CATEGORIA_CATEGORIA"))
     private Categoria categoriaPadre;
 
     @ToString.Exclude
