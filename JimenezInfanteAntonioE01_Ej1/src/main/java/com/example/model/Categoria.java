@@ -29,7 +29,7 @@ public class Categoria {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "categoriaPadre" ,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "categoriaPadre" ,fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @Builder.Default
     private Set<Categoria> categorias = new HashSet<>();
 
@@ -43,11 +43,11 @@ public class Categoria {
     public void setCategoriasToNull(){
 
         productos.forEach(p -> p.setCategoria(null));
-        if(categoriaPadre!=null) {
+        /*if(categoriaPadre!=null) {
             categoriaPadre.getCategorias().remove(this);
         }
-        else if(!categorias.isEmpty())
-            categorias.forEach(c -> c.setCategoriaPadre(null));
+        if(!categorias.isEmpty())
+            categorias.forEach(c -> c.setCategoriaPadre(null));*/
     }
 
     public void addToCategoriaPadre(Categoria c){
